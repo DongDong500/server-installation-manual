@@ -55,13 +55,9 @@ control process
 
 `jobs -s` list stopped process by `SIGTSTP`, not `SIGSTOP`.
 
-difference between `SIGSTOP` and `SIGTSTP` are showed below link.
+[difference between `SIGSTOP` and `SIGTSTP` are showed below link.](https://stackoverflow.com/questions/11886812/what-is-the-difference-between-sigstop-and-sigtstp/11888074#11888074)
 
-<https://stackoverflow.com/questions/11886812/what-is-the-difference-between-sigstop-and-sigtstp/11888074#11888074>
-
-show stopped process
-
-<https://stackoverflow.com/questions/32859493/linux-command-to-show-stopped-and-running-processes>
+[show stopped process](https://stackoverflow.com/questions/32859493/linux-command-to-show-stopped-and-running-processes)
 
 ```
 jobs -s
@@ -79,5 +75,6 @@ sudo sh cuda_12.0.1_525.85.12_linux.run
 
 ## cuDNN
 <https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html>
+
 
 ## Anaconda
