@@ -1,7 +1,7 @@
 # server-installation-manual
 Private physical server installation manual (network driver, cuda driver &amp; toolkits)
 
-## network driver (Realteck R8125 NIC chip)
+## network driver (Realtek R8125 NIC chip)
 ubuntu-20.04.5-live-server-amd64 dose not provide r8125 driver by default, we need to download manually without network connection.
 
 <https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software>
@@ -10,12 +10,16 @@ ubuntu-20.04.5-live-server-amd64 dose not provide r8125 driver by default, we ne
 
 ```
 lspci | grep Ethernet
+```
+or with options
+```
+lspci -knn | grep Eth -A3
 lshw -C network
 ```
 
 0. Before installing the network driver, we need `make` and `gcc` since ubuntu-20.04 does not provide them by default.
 
-Download `gcc` and `make` in other virtual envrionment (easy to solve dependency problems) with 
+Download `gcc` and `make` in other virtual environment (easy to solve dependency problems) with 
 
     apt-get install --download-only <package_name>
 
@@ -41,5 +45,28 @@ network:
 
 sudo netplan apply
 
+
+###### appendix
+check cpu info
+
+    grep -m 1 'model name' /proc/cpuinfo
+
+control process
+
+`jobs -s` list stopped process by `SIGTSTP`, not `SIGSTOP`.
+
+difference between `SIGSTOP` and `SIGTSTP` are showed below link.
+
+<https://stackoverflow.com/questions/11886812/what-is-the-difference-between-sigstop-and-sigtstp/11888074#11888074>
+
+show stopped process
+
+<https://stackoverflow.com/questions/32859493/linux-command-to-show-stopped-and-running-processes>
+
+```
+jobs -s
+ps -A -o stat,command,pid | grep '^T '
+kill -9 `jobs -ps`
+```
 
 ## cuda driver & toolkits
