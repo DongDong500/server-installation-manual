@@ -7,8 +7,11 @@ ubuntu-20.04.5-live-server-amd64 dose not provide r8125 driver by default, we ne
 <https://www.realtek.com/en/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software>
 
 #### Check Ethernet controller & logical name (interface, e.g. enp7s0)
+
+```
 lspci | grep Ethernet
 lshw -C network
+```
 
 0. Before installing the network driver, we need `make` and `gcc` since ubuntu-20.04 does not provide them by default.
 
