@@ -70,3 +70,14 @@ kill -9 `jobs -ps`
 ```
 
 ## cuda driver & toolkits
+<https://developer.nvidia.com/cuda-downloads>
+
+```
+wget -P [prefix] https://developer.download.nvidia.com/compute/cuda/12.0.1/local_installers/cuda_12.0.1_525.85.12_linux.run
+sudo sh cuda_12.0.1_525.85.12_linux.run
+```
+
+## cuDNN
+<https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html>
+
+## Anaconda
