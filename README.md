@@ -77,4 +77,28 @@ sudo sh cuda_12.0.1_525.85.12_linux.run
 <https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html>
 
 
-## Anaconda
+## Anaconda3
+
+```
+wget -P [prefix] https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh
+bash Anaconda3-2021.05-Linux-x86_64.sh
+```
+
+add the below in `/etc/skel/.bashrc` and `/home/{user}/.bashrc`
+
+```
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/anaconda3/21.05/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda3/21.05/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda3/21.05/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/anaconda3/21.05/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+```
