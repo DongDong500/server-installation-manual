@@ -29,7 +29,7 @@ move them into usb, mount to the target server install with
 
     dpkg --force-all -i *.deb
 
-1. download r8125
+1. download r8125 (kernel up to 5.19)
 2. tar -xvf r8125-9.005.06.tar.bz2
 3. sudo ./autorun.sh
 
@@ -64,6 +64,27 @@ jobs -s
 ps -A -o stat,command,pid | grep '^T '
 kill -9 `jobs -ps`
 ```
+
+## Upgrade kernel on Ubuntu 20.04
+Before starting, update all system packages
+```
+uname -r
+sudo apt update
+sudo apt upgrade
+```
+then
+```
+wget -P [prefix] https://raw.githubusercontent.com/pimlie/ubuntu-mainline-kernel.sh/
+master/ubuntu-mainline-kernel.sh
+sudo cp ubuntu-mainline-kernel.sh /usr/local/bin/
+sudo chmod +x /usr/local/bin/ubuntu-mainline-kernel.sh
+```
+search and find the latest version of kernel by
+    ubuntu-mainline-kernel.sh -c
+Also able to see the list of available version of Kernel to install
+    ubuntu-mainline-kernel.sh -r
+install preferred version of the Kernel by
+    ubuntu-mainline-kernel.sh -i [version-number]
 
 ## cuda driver & toolkits
 <https://developer.nvidia.com/cuda-downloads>
@@ -102,3 +123,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 ```
+
+#### Add github.com SSH key
+    ssh-keygen -t 
