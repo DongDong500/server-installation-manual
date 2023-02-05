@@ -16,7 +16,7 @@ lspci -knn | grep Eth -A3
 lshw -C network
 ```
 
-    0. Before installing the network driver, we need `make` and `gcc` since ubuntu-20.04 does not provide them by default.
+0. Before installing the network driver, we need `make` and `gcc` since ubuntu-20.04 does not provide them by default.
 
 Download `gcc` and `make` in other virtual environment (easy to solve dependency problems) with 
 
@@ -28,11 +28,12 @@ move them into usb, mount to the target server install with
 
     dpkg --force-all -i *.deb
 
-```
 1. download r8125 (kernel up to 5.19)
-2. tar -xvf r8125-9.005.06.tar.bz2
-3. sudo ./autorun.sh
-```
+
+2. `tar -xvf r8125-9.005.06.tar.bz2`
+
+3. `sudo ./autorun.sh`
+
 (This is not installed as a DKMS, only efforts to the current kernel.)
 
 edit /etc/netplan/*.yaml
