@@ -80,10 +80,15 @@ sudo cp ubuntu-mainline-kernel.sh /usr/local/bin/
 sudo chmod +x /usr/local/bin/ubuntu-mainline-kernel.sh
 ```
 search and find the latest version of kernel by
+
     ubuntu-mainline-kernel.sh -c
+
 Also able to see the list of available version of Kernel to install
+
     ubuntu-mainline-kernel.sh -r
+
 install preferred version of the Kernel by
+
     ubuntu-mainline-kernel.sh -i [version-number]
 
 ## cuda driver & toolkits
