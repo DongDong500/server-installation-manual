@@ -102,6 +102,34 @@ Logfile is /var/log/cuda-installer.log
 ## cuDNN
 <https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html>
 
+To verify cuDNN is installed and is running properly.
+
+
+simply run below code under cuDNN 8.x
+
+```
+cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+```
+
+above cuDNN 8.x
+
+```
+cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
+```
+
+Or compile the mnistCUDNN sample located in the `/usr/src/cudnn_samples_v8` directory in the Debian file.
+
+```
+cp -r /usr/src/cudnn_samples_v8/ $HOME
+cd  $HOME/cudnn_samples_v8/mnistCUDNN
+make clean && make
+./mnistCUDNN
+```
+
+If cuDNN is properly installed and running on your Linux system, you will see a message similar to the following:
+
+`Test passed!`
+
 ## Anaconda3
 ```
 wget -P [prefix] https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh
