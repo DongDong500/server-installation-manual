@@ -76,6 +76,11 @@ install preferred version of the Kernel by
 
 ## cuda driver & toolkit
 
+CUDA wiki
+
+<https://www.wikiwand.com/en/CUDA#/GPUs_supported>
+
+
 Before installing CUDA, remove the old packages completely from the system.
 
 ```
@@ -84,6 +89,33 @@ sudo apt-get --purge remove 'cuda*'
 sudo apt-get autoremove --purge 'cuda*'
 sudo rm -rf /usr/local/cuda
 ```
+
+or
+
+To uninstall the CUDA Toolkit, run cuda-uninstaller in /usr/local/cuda-11.4/bin
+
+```
+nvidia-uninstall
+```
+
+nvidia-drm & xorg issue
+
+<https://download.nvidia.com/XFree86/Linux-x86_64/396.51/README/kms.html>
+
+<https://unix.stackexchange.com/questions/440840/how-to-unload-kernel-module-nvidia-drm>
+
+use the following command to disable the graphical target, which is what keeps the display manager running:
+
+`systemctl isolate multi-user.target`
+
+At this point, I'd expect you'd be able to unload the Nvidia drivers using modprobe -r (or rmmod directly):
+
+`modprobe -r nvidia-drm`
+
+CUDA Toolkit archieve
+
+<https://developer.nvidia.com/cuda-toolkit-archive>
+
 
 <https://developer.nvidia.com/cuda-downloads>
 
