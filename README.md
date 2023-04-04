@@ -74,7 +74,17 @@ install preferred version of the Kernel by
 
     ubuntu-mainline-kernel.sh -i [version-number]
 
-## cuda driver & toolkits
+## cuda driver & toolkit
+
+Before installing CUDA, remove the old packages completely from the system.
+
+```
+sudo apt-get remove --purge 'nvidia-.*'
+sudo apt-get --purge remove 'cuda*'
+sudo apt-get autoremove --purge 'cuda*'
+sudo rm -rf /usr/local/cuda
+```
+
 <https://developer.nvidia.com/cuda-downloads>
 
 
