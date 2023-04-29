@@ -76,6 +76,18 @@ install preferred version of the Kernel by
 
 ## cuda driver & toolkit
 
+Magic Commands
+
+<https://help.ubuntu.com/community/NvidiaDriversInstallation>
+```
+sudo apt-get install ubuntu-drivers-common
+sudo ubuntu-drivers list
+sudo ubuntu-drivers list --gpgpu
+sudo ubuntu-drivers install --gpgpu
+sudo apt install nvidia-utils-${DRIVER_VERSION}
+[optional] sudo nvidia -pm ENABLED
+```
+
 CUDA wiki
 
 <https://www.wikiwand.com/en/CUDA#/GPUs_supported>
