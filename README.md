@@ -234,3 +234,59 @@ kill -9 `jobs -ps`
 The types and definitions of Ubuntu Linux Partitions and Directories Explained.
 
 <https://www.dell.com/support/kbdoc/ko-kr/000131456/the-types-and-definitions-of-ubuntu-linux-partitions-and-directories-explained?lang=en>
+
+#### server settings
+
+1. Boot ubuntu in console mode (CLI Booting)
+
+`/etc/default/grub`
+
+```
+#GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+GRUB_CMDLINE_LINUX="text"
+GRUB_TERMINAL=console
+```
+
+```
+update-grub
+systemctl set-default multi-user.target
+reboot
+```
+
+2. Disk mount
+
+check UUID `blkid` add UUID `/etc/fstab`
+
+#### Security settings
+
+1. modify ssh configuration
+
+in `/etc/ssh/sshd_config`, 
+
+```
+PermitRootLogin no
+MaxAuthTries 10
+```
+
+add below rules in `/etc/hosts.allow` and `/etc/hosts.deny`
+
+```
+sshd: xxx.xxx.xxx.xxx
+```
+
+```
+sshd: ALL
+```
+
+run `service sshd restart`
+
+
+appendix. 
+
+```
+last -f /var/log/btmp
+last -f /var/log/wtmp
+```
+
+
+
